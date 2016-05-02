@@ -11,7 +11,6 @@ As we are using [HStoreField](https://docs.djangoproject.com/en/1.9/ref/contrib/
 * cd drf_shop
 * Configure in environment variable DRF_SHOP_DATABASE_URL in the format postgresql://[user[:password]@][netloc][:port][/dbname]
 * pip install -r requirements.txt
-* python manage.py makemigrations
 * python manage.py migrate
 * python manage.py runserver
 
