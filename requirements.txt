@@ -6,3 +6,4 @@ djangorestframework==3.3.3
 djangorestframework-jwt==1.8.0
 gunicorn==19.4.5
 requests==2.9.1
+model-mommy==1.2.6
