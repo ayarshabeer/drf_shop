@@ -50,7 +50,7 @@ class Product(models.Model):
 
     manufacturer = models.ForeignKey(Manufacturer, verbose_name=_(u"Manufacturer"), blank=True,
                                      null=True, related_name="products", on_delete=models.SET_NULL)
-
+    cover_image = models.ImageField(upload_to='products/images/', blank=True, null=True)
     # for SEO
     meta_title = models.CharField(max_length=150, blank=True, null=True)
     meta_description = models.TextField(blank=True, null=True)
@@ -71,7 +71,7 @@ class ProductVariant(models.Model):
 
 
 class ProductImage(models.Model):
-    product = models.ForeignKey(Product)
+    productvariant = models.ForeignKey(ProductVariant)
     image = models.ImageField(upload_to='products/images/')
     is_featured = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
