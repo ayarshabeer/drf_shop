@@ -30,12 +30,3 @@ class TestSignup(APITestCase):
         response = view(request)
         response.render()
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-
-    def test_user_signup_invalidpassword(self):
-        url = reverse('user_signup')
-        view = UserSignupView.as_view()
-        request = self.factory.post(
-            url, {'email': 'shabeer.ayar@gmail.com', 'first_name': 'shabeer', 'last_name': 'ayar', 'password': 'test'})
-        response = view(request)
-        response.render()
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)

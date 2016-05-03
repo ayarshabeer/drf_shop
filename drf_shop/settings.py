@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'accounts',
     'products',
+    'carts',
 ]
 
 MIDDLEWARE_CLASSES = [

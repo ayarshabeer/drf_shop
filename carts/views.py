@@ -3,10 +3,10 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from carts.models import Cart
-from cart.serializer import CartSerializer
+from carts.serializers import CartSerializer
 
 
-@api_view('POST')
+@api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def add_to_cart(request, format=None):
     productvar_id = request.data['product']

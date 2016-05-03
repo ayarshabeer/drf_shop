@@ -18,6 +18,7 @@ from django.contrib import admin
 from rest_framework.routers import DefaultRouter
 from products.views import ManufacturerViewSet, CategoryViewSet, ProductViewSet, ProductImageViewSet
 from accounts.views import UserSignupView, UserViewSet
+from carts.views import add_to_cart
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
 router.register(r'manufacturers', ManufacturerViewSet)
@@ -29,6 +30,7 @@ router.register(r'users', UserViewSet)
 urlpatterns = [
     #url(r'^admin/', admin.site.urls),
     url(r'^api/v1/', include(router.urls)),
-    url(r'^api/v1/signup', UserSignupView.as_view(),name='user_signup'),
+    url(r'^api/v1/signup', UserSignupView.as_view(), name='user_signup'),
+    url(r'^api/v1/addtocart', add_to_cart, name='add_to_cart'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

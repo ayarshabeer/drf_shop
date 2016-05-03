@@ -11,7 +11,7 @@ class ManufacturerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Manufacturer
-        fields = ('id', 'name', 'slug')
+        fields = ('id', 'name', 'slug','created_by')
 
 
 class CategorySerializer(serializers.ModelSerializer):
