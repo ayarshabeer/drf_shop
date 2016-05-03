@@ -1,8 +1,6 @@
-from django.shortcuts import render
-
-from rest_framework.decorators import detail_route
+from __future__ import unicode_literals
 from rest_framework import viewsets
-from rest_framework import permissions
+from core.permissions import IsStaffOrReadOnly
 
 from products.models import Manufacturer, Category, Product, ProductImage
 from products.serializers import ManufacturerSerializer, CategorySerializer,\
@@ -17,6 +15,7 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
     """
     queryset = Manufacturer.objects.all()
     serializer_class = ManufacturerSerializer
+    permission_classes = (IsStaffOrReadOnly,)
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
@@ -27,7 +26,8 @@ class CategoryViewSet(viewsets.ModelViewSet):
     """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (IsStaffOrReadOnly,)
+
 
 class ProductViewSet(viewsets.ModelViewSet):
     """
@@ -37,7 +37,8 @@ class ProductViewSet(viewsets.ModelViewSet):
     """
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (IsStaffOrReadOnly,)
+
 
 class ProductImageViewSet(viewsets.ModelViewSet):
     """
@@ -47,4 +48,4 @@ class ProductImageViewSet(viewsets.ModelViewSet):
     """
     queryset = ProductImage.objects.all()
     serializer_class = ProductImageSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (IsStaffOrReadOnly,)

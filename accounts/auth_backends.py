@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from accounts.models import User
 from django.contrib.auth.backends import ModelBackend
 
